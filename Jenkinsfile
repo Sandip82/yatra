@@ -21,7 +21,6 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 echo 'Code Compilation is In Progress!'
-                sh 'mvn --version'
                 sh 'mvn clean compile'
             }
         }
@@ -29,14 +28,12 @@ pipeline {
         stage('Code QA Execution') {
             steps {
                 echo 'Junit Test case check in Progress!'
-                sh 'mvn --version'
                 sh 'mvn clean test'
             }
         }
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
-                sh 'java -version'
                 sh 'mvn clean package'
             }
         }
