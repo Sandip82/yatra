@@ -12,7 +12,6 @@ pipeline {
                 sh 'whoami'
                 echo "Pipepile started"
                 echo 'Code Compilation is In Progress!'
-                sh 'mvn -version'
                 sh 'java --version'
                 sh 'git --version'
                 sh 'whoami'
