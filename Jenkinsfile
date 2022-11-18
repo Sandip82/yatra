@@ -6,10 +6,6 @@ pipeline {
 
     agent any
 
-    tools {
-        maven 'maven_3.8.6'
-    }
-
     stages {
         stage('Checking JAVA, Maven,git') {
             steps {
