@@ -12,6 +12,7 @@ pipeline {
                 sh 'whoami'
                 echo "Pipepile started"
                 echo 'Code Compilation is In Progress!'
+                sh 'mv --version'
                 sh 'java --version'
                 sh 'git --version'
                 sh 'whoami'
@@ -21,20 +22,20 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 echo 'Code Compilation is In Progress!'
-                sh 'mvn clean compile'
+                sh 'mv clean compile'
             }
         }
 
         stage('Code QA Execution') {
             steps {
                 echo 'Junit Test case check in Progress!'
-                sh 'mvn clean test'
+                sh 'mv clean test'
             }
         }
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
-                sh 'mvn clean package'
+                sh 'mv clean package'
             }
         }
 
