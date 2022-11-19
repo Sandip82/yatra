@@ -5,6 +5,10 @@ pipeline {
     }
 
     agent any
+    
+    tools {
+        maven 'maven_3.8.6'
+    }
 
     stages {
         stage('Checking JAVA, Maven,git') {
@@ -12,7 +16,7 @@ pipeline {
                 sh 'whoami'
                 echo "Pipepile started"
                 echo 'Code Compilation is In Progress!'
-                sh 'mv --version'
+                sh 'mvn --version'
                 sh 'java --version'
                 sh 'git --version'
                 sh 'whoami'
@@ -22,20 +26,20 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 echo 'Code Compilation is In Progress!'
-                sh 'mv clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Code QA Execution') {
             steps {
                 echo 'Junit Test case check in Progress!'
-                sh 'mv clean test'
+                sh 'mvn clean test'
             }
         }
         stage('Code Package') {
             steps {
                 echo 'Creating War Artifact'
-                sh 'mv clean package'
+                sh 'mvn clean package'
             }
         }
 
